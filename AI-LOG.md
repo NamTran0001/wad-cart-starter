@@ -3,12 +3,13 @@
 ## AI tool used
 
 - ChatGPT
+- Gemini
 
 ## How I used AI
 
 I used ChatGPT to help me understand the assignment requirements and check my work while implementing `cartTotal`.
 
-At the beginning, ChatGPT helped me set up the project workflow. I added an `AGENTS.md` file, an `npm run lint` command, and a GitHub Actions workflow for running tests and lint on push.
+I added the `AGENTS.md` file, the `npm run lint` command, and a GitHub Actions workflow to run tests and linting on every push, after consulting on the appropriate rules and how to configure the necessary constraints and requirements.
 
 I also asked ChatGPT to help me plan the tests required by the rubric. Based on that, I added tests for:
 
@@ -43,5 +44,8 @@ After implementing the function and adding the tests:
 
 ## Commits
 
-- `a52ecfa` — `chore: add project harness and CI`
-- `f7d810e` — `Implement cart total and add tests`
+- `7c887ef` - `docs: add repository link`
+- `a3d2027` - `Update project`
+- `8ac16a6` - `docs: fix brief, add AI log and self assessment`
+- `f7d810e` - `Implement cart total and add tests`
+
