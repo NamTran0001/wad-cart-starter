@@ -1,17 +1,21 @@
-﻿# Self-Assessment Report
+﻿# Self-assessment — IA#1
 
-| Rubric criterion | Claimed marks | Evidence |
-|---|---:|---|
-| Behaviour | 30/30 | `src/cart.js`. Calculates subtotal, VAT and shipping, handles free shipping at the threshold, returns 0 for an empty cart, checks invalid price/quantity with `RangeError`, and rounds the final result. |
-| Tests | 20/20 | `test/cart.test.js`. Tests cover the worked example, empty cart, free-shipping threshold, negative price, non-integer quantity and non-positive quantity. Final test run passed 6/6. |
-| Harness | 20/20 | `AGENTS.md`, `package.json` and `.github/workflows/ci.yml`. Includes the required commands, project rules, lint check and CI workflow. |
-| Brief | 15/15 | `BRIEF.md`. Describes the task, files in scope, function contract, edge cases and worked example. |
-| AI-LOG | 15/15 | `AI-LOG.md`. Records how I used ChatGPT, what suggestions I followed, and what I changed while working on the assignment. |
+Submitted by: `24127459` - `Tran Van Nam`
 
-## Total claimed
+Total I claim: 100 / 100
 
-**100/100**
+| Criterion | Max | I claim | Evidence |
+|---|---|---|---|
+| Behaviour | 30 | 30 | `src/cart.js`. Calculates subtotal, VAT, shipping, free shipping threshold, empty cart, and throws `RangeError` for invalid price/qty. |
+| Tests | 20 | 20 | `test/cart.test.js`. Passed all 6 tests covering example calculation, empty cart, threshold, negative price, non-integer qty, and non-positive qty. |
+| Harness | 20 | 20 | `AGENTS.md`, `package.json`, `.github/workflows/ci.yml`. `npm test` and `npm run lint` pass locally and in GitHub Actions CI. |
+| Brief | 15 | 15 | `BRIEF.md`. Corrected markdown formatting, clearly specifies task, files, contracts, edge cases, and worked example. |
+| AI-LOG.md | 15 | 15 | `AI-LOG.md`. Fully documented tool usage, prompts, kept/changed code, rejected suggestions, and manual work. |
 
 ## What I did not manage
 
-I completed the required implementation, tests, harness, brief and AI log. I did not add extra features outside the assignment because they were not required.
+During initial testing, I accidentally created an untracked file (`tatus`) via PowerShell and left commented-out legacy code in `test/cart.test.js`. I had to clean these up manually before finalizing the submission.
+
+## What I would do differently
+
+I would write the `AI-LOG.md` entries incrementally as I work rather than organizing them right before committing, ensuring exact prompt history and rejected iterations are logged instantly.

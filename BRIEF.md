@@ -1,45 +1,43 @@
-﻿# cartTotal Implementation Brief
+﻿# Brief — cartTotal Implementation
 
 ## Task
 
-Implement `cartTotal(items, options)` in `src/cart.js` using plain JavaScript with no external dependencies.
+Implement `cartTotal(items, options)` in `src/cart.js` using plain JavaScript with no external runtime dependencies.
 
-## Files in scope
+## Files in Scope
 
 - `src/cart.js` — implementation of `cartTotal`
-- `test/cart.test.js` — tests for the required behaviour
-
-Do not add runtime dependencies.
+- `test/cart.test.js` — unit tests for `cartTotal`
 
 ## Contract
 
 `cartTotal(items, options)` receives:
 
-- `items`: an array of objects with `{ name, price, qty }`
-- `options`: `{ vatRate, freeShipFrom, shipFee }`
+- `items`: An array of item objects, each formatted as `{ name: string, price: number, qty: number }`.
+- `options`: An options object formatted as `{ vatRate: number, freeShipFrom: number, shipFee: number }`.
 
-The function calculates:
+### Calculation Logic
 
-1. `subtotal` = sum of `price × qty` for all items.
-2. VAT = `vatRate × subtotal`.
-3. Shipping = `0` when `subtotal >= freeShipFrom`; otherwise `shipFee`.
-4. Return `subtotal + VAT + shipping`, rounded to the nearest whole đồng.
-5. The return value must be a JavaScript `number`.
+1. **Subtotal**: Sum of `price × qty` for all items.
+2. **VAT**: Calculated as `subtotal × vatRate`.
+3. **Shipping**: Set to `0` if `subtotal >= freeShipFrom`; otherwise set to `shipFee`.
+4. **Total**: Returns `Math.round(subtotal + VAT + shipping)`.
+5. **Return Type**: JavaScript `number`.
 
-## Edge cases
+## Edge Cases & Error Handling
 
-- An empty cart returns `0`, with no VAT and no shipping.
-- A negative `price` throws `RangeError`.
-- A `qty` that is not a positive integer throws `RangeError`.
+- **Empty Cart**: If `items` is an empty array `[]`, the function must return `0` immediately (no shipping or VAT applied).
+- **Invalid Price**: If any item has a negative `price` (`price < 0`), throw a `RangeError`.
+- **Invalid Quantity**: If any item has a `qty` that is not a positive integer (i.e., `qty <= 0` or `!Number.isInteger(qty)`), throw a `RangeError`.
 
-## Acceptance example
+## Worked Example
 
-For:
+Given:
+- `items`: `[{ name: 'A', price: 180000, qty: 2 }, { name: 'B', price: 45000, qty: 1 }]`
+- `options`: `{ vatRate: 0.08, freeShipFrom: 500000, shipFee: 30000 }`
 
-- `2 × 180000`
-- `1 × 45000`
-- `vatRate = 0.08`
-- `freeShipFrom = 500000`
-- `shipFee = 30000`
-
-the subtotal is `405000`, VAT is `32400`, shipping is `30000`, and the result must be `467400`.
+Calculation:
+- `subtotal` = `(180000 × 2) + (45000 × 1)` = `405000`
+- `VAT` = `405000 × 0.08` = `32400`
+- `shipping` = `30000` (since `405000 < 500000`)
+- `total` = `405000 + 32400 + 30000` = **`467400`**
